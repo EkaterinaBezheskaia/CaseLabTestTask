@@ -1,2 +1,64 @@
-# CaseLabTestTask
-Short microservice with POST and GET function; stack Java+Spring Boot+PostgreSQL
+#Управление файлами API
+Данный проект является серверной частью веб-приложения для управления файлами. Он включает в себя API для создания, получения и списка файлов. Проект использует Spring Boot для создания RESTful API и взаимодействует с базой данных для хранения информации о файлах.
+
+##Запуск приложения
+1. Клонировать репозиторий:
+
+git clone https://github.com/EkaterinaBezheskaia/CaseLabTestTask.git
+
+2. Перейти в директорию проекта:
+
+cd D:\Testing\CaseLabTestTask
+
+3. Упаковать приложение с помощью Maven:
+
+mvn -f D:\Testing\CaseLabTestTask\TestTask\pom.xml clean package
+
+4. Запустить приложение с помощью Java (директория jar указана при обработке Maven):
+
+java -jar D:\Testing\CaseLabTestTask\TestTask\target\TestTask-0.0.1-SNAPSHOT.jar
+
+5. Приложение будет доступно по адресу:
+
+http://localhost:8081
+
+##Примеры тестовых запросов для проверки API-методов
+###Создание файла
+Для запроса необходимо создать файл в формате JSON с содержанием в формате:
+
+{
+  "title": "Новый файл",
+  "creationDate": "2023-02-20T14:30:00",
+  "description": "Это новый файл",
+  "base64File": "ваш кодированный файл base64"
+}
+
+Далее выбрать директорию, в которой сохранен файл.
+
+POST /api/files/{id}
+
+Пример запроса:
+
+curl.exe -X POST --user root --data "@test1.json" -H 'content-type: application/json;' http://localhost:8081/api/files/1
+
+Далее система требует пароль пользователя root: 123456. В ответ получаем id файла.
+
+###Получение файла по ID
+GET /{id}
+
+Пример запроса:
+
+curl.exe -X GET --user root http://localhost:8081/1
+
+Далее система требует пароль пользователя root: 123456. В ответ получаем содержимое файла с id=1.
+
+###Получение всех файлов
+GET /api/files
+
+Пример запроса:
+
+curl.exe -X GET --user root http://localhost:8081/api/files
+
+Далее система требует пароль пользователя root: 123456. В ответ получаем содержимое файлов, отсортированных по времени создания.
+
+Эти команды позволят вам проверить основные функции вашего API, включая создание и получение файлов, а также получение списка всех файлов.
