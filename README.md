@@ -1,2 +1,2 @@
 # CaseLabTestTask
-Short microservice with POST and GET function; steck Java+Spring Boot+PostgreSQL
+Short microservice with POST and GET function; stack Java+Spring Boot+PostgreSQL
