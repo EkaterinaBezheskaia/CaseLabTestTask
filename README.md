@@ -25,7 +25,9 @@ java -jar D:\Testing\CaseLabTestTask\TestTask\target\TestTask-0.0.1-SNAPSHOT.jar
 http://localhost:8081
 
 **Примеры тестовых запросов для проверки API-методов**
+
 **Создание файла**
+
 Для запроса необходимо создать файл в формате JSON с содержанием в формате:
 
 {
@@ -46,6 +48,7 @@ curl.exe -X POST --user root --data "@test1.json" -H 'content-type: application/
 Далее система требует пароль пользователя root: 123456. В ответ получаем id файла.
 
 **Получение файла по ID**
+
 GET /{id}
 
 Пример запроса:
@@ -55,6 +58,7 @@ curl.exe -X GET --user root http://localhost:8081/1
 Далее система требует пароль пользователя root: 123456. В ответ получаем содержимое файла с id=1.
 
 **Получение всех файлов**
+
 GET /api/files
 
 Пример запроса:
